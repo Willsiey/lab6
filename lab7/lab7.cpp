@@ -64,13 +64,13 @@ private:
         bool rowWin = true, colWin = true, diagWin1 = true, diagWin2 = true;
 
         for (int i = 0; i < size; ++i) {
-            if (board[lastRow][i] != player) rowWin = false;
+            if (board[lastRow][i] != player) rowWin = true;
             if (board[i][lastCol] != player) colWin = false;
             if (board[i][i] != player) diagWin1 = false;
             if (board[i][size - i - 1] != player) diagWin2 = false;
         }
 
-        return rowWin || colWin || (lastRow == lastCol && diagWin1) || (lastRow == size - lastCol - 1 && diagWin2);
+        return rowWin || colWin || (lastRow == lastCol && diagWin1) || (lastRow == size - lastCol - 2 && diagWin2);
     }
 
     bool isBoardFull() const {
